@@ -1877,29 +1877,40 @@ namespace behaviac
         [Conditional("BEHAVIAC_DEBUG")]
         public static void Log(string message)
         {
-            //UnityEngine.Debug.Log(message);
+            if (BaseLogger.Instance != null)
+            {
+                BaseLogger.Instance.Log(message);
+            }
         }
 
         public static void LogWarning(string message)
         {
-            //UnityEngine.Debug.LogWarning(message);
+            if (BaseLogger.Instance != null)
+            {
+                BaseLogger.Instance.LogWarning(message);
+            }
         }
 
         public static void LogError(string message)
         {
-            //UnityEngine.Debug.LogError(message);
+            if (BaseLogger.Instance != null)
+            {
+                BaseLogger.Instance.LogError(message);
+            }
         }
 
         public static void LogError(Exception ex)
         {
-            //UnityEngine.Debug.LogError(ex.Message);
+            if (BaseLogger.Instance != null)
+            {
+                BaseLogger.Instance.LogError(ex);
+            }
         }
 
         [Conditional("BEHAVIAC_DEBUG")]
         public static void Break(string msg)
         {
             LogError(msg);
-
             //UnityEngine.Debug.Break();
             //throw new Exception();
             //System.Diagnostics.Debug.Assert(false);

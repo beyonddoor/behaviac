@@ -346,13 +346,11 @@ namespace behaviac
         {
             get
             {
-                //return (m_frameSinceStartup < 0) ? Time.frameCount : m_frameSinceStartup;
-                //todo cosmore
-                return 0;
+                return BaseTimer.Instance.FrameSinceStartup;
             }
             set
             {
-                m_frameSinceStartup = value;
+                BaseTimer.Instance.FrameSinceStartup = value;
             }
         }
 
@@ -363,8 +361,7 @@ namespace behaviac
         {
             get
             {
-                //return Time.realtimeSinceStartup;
-                return 0;
+                return BaseTimer.Instance.TimeSinceStartup;
             }
         }
 
